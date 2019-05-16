@@ -11,11 +11,11 @@ public class ZillasServices {
 	@Autowired
 	private ZillasRepo zillasRepo;
 	
-//	public Zillas findByPost_Id(int post_id) {
-//		return zillasRepo.findByPost_Id(post_id);
-//	}
-//	
-//	public Zillas save(Zillas z) {
-//		return zillasRepo.save(z);
-//	}
+	public Zillas findById(int id) {
+		return zillasRepo.getOne(id);
+	}
+	
+	public Zillas save(Zillas z) {
+		return zillasRepo.save(z);
+	}
 }
