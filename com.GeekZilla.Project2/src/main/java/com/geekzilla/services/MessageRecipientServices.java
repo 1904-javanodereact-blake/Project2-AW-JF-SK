@@ -9,12 +9,14 @@ import com.geekzilla.repositories.MessageRecipientRepo;
 @Service
 public class MessageRecipientServices {
 
-	
 	@Autowired
 	private MessageRecipientRepo messageRecipientRepo;
-	public MessageRecipient findByMesId(Integer id) {
-		return messageRecipientRepo.findByMesId(id);
+	
+	public MessageRecipient findByid(int id) {
+		// TODO Auto-generated method stub
+		return messageRecipientRepo.getOne(id);
 	}
+
 	public MessageRecipient save(MessageRecipient m) {
 		return messageRecipientRepo.save(m);
 	}

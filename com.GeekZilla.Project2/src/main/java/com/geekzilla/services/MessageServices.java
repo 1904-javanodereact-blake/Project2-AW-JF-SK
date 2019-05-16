@@ -11,8 +11,8 @@ public class MessageServices {
 	@Autowired
 	private MessagesRepo messagesRepo;
 	
-	public Messages findByMesId(int mesId) {
-		return messagesRepo.findByMesId(mesId);
+	public Messages findById(int mesId) {
+		return messagesRepo.getOne(mesId);
 	}
 	public Messages save(Messages v) {
 		return messagesRepo.save(v);

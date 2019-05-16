@@ -21,11 +21,10 @@ public class Zillas {
 	private int postId;
 	
 	@OneToOne
-	@JoinColumn(unique = true)
+	@JoinColumn(name = "userId")
 	private Users userId;
 	
-	@Column(nullable=false, unique=false)
-	private int likecount;
+	private int likeCount;
 
 	public Zillas() {
 		super();
@@ -36,7 +35,7 @@ public class Zillas {
 		super();
 		this.postId = postId;
 		this.userId = userId;
-		this.likecount = likeCount;
+		this.likeCount = likeCount;
 	}
 
 	public int getPostId() {
@@ -56,23 +55,23 @@ public class Zillas {
 	}
 
 	public int getLikeCount() {
-		return likecount;
+		return likeCount;
 	}
 
 	public void setLikeCount(int likeCount) {
-		this.likecount = likeCount;
+		this.likeCount = likeCount;
 	}
 
 	@Override
 	public String toString() {
-		return "Zillas [postId=" + postId + ", userId=" + userId + ", likeCount=" + likecount + "]";
+		return "Zillas [postId=" + postId + ", userId=" + userId + ", likeCount=" + likeCount + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + likecount;
+		result = prime * result + likeCount;
 		result = prime * result + postId;
 		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
 		return result;
@@ -87,7 +86,7 @@ public class Zillas {
 		if (getClass() != obj.getClass())
 			return false;
 		Zillas other = (Zillas) obj;
-		if (likecount != other.likecount)
+		if (likeCount != other.likeCount)
 			return false;
 		if (postId != other.postId)
 			return false;

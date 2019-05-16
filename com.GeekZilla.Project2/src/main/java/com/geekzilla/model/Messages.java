@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -22,6 +24,7 @@ public class Messages {
 	private String subject;
 	@Column(nullable=false, unique=false)
 	private String content;
+	@Type(type = "date")
 	@Column(nullable=false, unique=false)
 	private Date sent_on;
 	public Messages() {

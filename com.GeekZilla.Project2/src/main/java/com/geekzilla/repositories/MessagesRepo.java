@@ -7,6 +7,4 @@ import com.geekzilla.model.Messages;
 @Repository
 public interface MessagesRepo extends JpaRepository<Messages, Integer>{
 
-	Messages findByMesId(Integer mesId);
-	Messages findByMesId(int id);
 }

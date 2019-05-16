@@ -1,7 +1,7 @@
 package com.geekzilla.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,22 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geekzilla.model.Messages;
-import com.geekzilla.model.Users;
+import com.geekzilla.model.Users;	
+import com.geekzilla.services.MessageServices;
 
 @RestController
 @RequestMapping("message")
 public class MessageController {
-	private Messages message;
-
 	@Autowired
+	private MessageServices messageService;
+
+	
 	@PostMapping()
 	public Messages save(@RequestBody Messages m) {
-		return message.save(m);
+		return messageService.save(m);
 	}
 
-	@GetMapping("id")
+	@GetMapping("{id}")
 	public Messages findByMesId(@PathVariable int id) {
-		return message.findByMesId(id);
+		return messageService.findById(id);
 
 	}
 }

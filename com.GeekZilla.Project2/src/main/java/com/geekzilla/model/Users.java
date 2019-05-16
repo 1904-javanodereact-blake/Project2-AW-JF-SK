@@ -19,7 +19,6 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-    @JoinColumn(name = "UserId", referencedColumnName = "UserId")
 	private int userId;
 	
 	@Column(name = "user_name", nullable=false, unique=true)
