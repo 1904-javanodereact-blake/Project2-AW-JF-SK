@@ -3,6 +3,7 @@ package com.geekzilla.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,11 @@ import com.geekzilla.model.MessageRecipient;
 @RestController
 @RequestMapping("recievedmessages")
 public class MessageRecipientController {
-	List<MessageRecipient> msgrecieve = new ArrayList<>();
-	
+	private MessageRecipient msgrecieve;
+	@Autowired
 	@GetMapping("id")
 	public MessageRecipient findById(@PathVariable int id) {
-		return msgrecieve.stream().filter(msgrecieve -> msgrecieve.getId() == id).findFirst().get();
+		return msgrecieve.findByid(id);
 		
 	}
 }
