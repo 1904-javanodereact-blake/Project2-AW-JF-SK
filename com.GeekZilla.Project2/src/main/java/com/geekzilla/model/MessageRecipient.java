@@ -19,22 +19,58 @@ public class MessageRecipient {
 	private int id;
 	
 	
+	@ManyToOne()
+	@JoinColumn(name = "user_id")
+	private int recipientid;
+	
 	@Column(nullable=false, unique=true)
 	private int message;
 	
 	@Column(nullable=false, unique=true)
 	private boolean isread;
-	
+
 	public MessageRecipient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public MessageRecipient(int id, int message, boolean isread) {
+	public MessageRecipient(int id, int recipientid, boolean isread, int message) {
 		super();
 		this.id = id;
-		this.message = message;
+		this.recipientid = recipientid;
 		this.isread = isread;
+		this.message = message;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + (isread ? 1231 : 1237);
+		result = prime * result + message;
+		result = prime * result + recipientid;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MessageRecipient other = (MessageRecipient) obj;
+		if (id != other.id)
+			return false;
+		if (isread != other.isread)
+			return false;
+		if (message != other.message)
+			return false;
+		if (recipientid != other.recipientid)
+			return false;
+		return true;
 	}
 
 	public int getId() {
@@ -43,6 +79,14 @@ public class MessageRecipient {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getRecipientid() {
+		return recipientid;
+	}
+
+	public void setRecipientid(int recipientid) {
+		this.recipientid = recipientid;
 	}
 
 	public int getMessage() {
@@ -65,33 +109,6 @@ public class MessageRecipient {
 	public String toString() {
 		return "MessageRecipient [id=" + id + ", message=" + message + ", isread=" + isread + "]";
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		result = prime * result + (isread ? 1231 : 1237);
-		result = prime * result + message;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MessageRecipient other = (MessageRecipient) obj;
-		if (id != other.id)
-			return false;
-		if (isread != other.isread)
-			return false;
-		if(message != other.message)
-			return false;
-		return true;
-	}
-		
+	
+	
 }
