@@ -7,8 +7,6 @@ import com.geekzilla.model.Users;
 
 @Repository 
 public interface UserRepo extends JpaRepository<Users, Integer> {
-	
-	Users findByUserName(String username);
-	Users findByUserId(int id);
 
+	Users findByUserName(String userName);
 }

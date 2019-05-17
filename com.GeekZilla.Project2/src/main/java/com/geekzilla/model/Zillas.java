@@ -1,14 +1,11 @@
 package com.geekzilla.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.CascadeType;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -19,10 +16,9 @@ public class Zillas {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int postId;
-	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "userId")
-	private Users userId;
+	private Users user;
 	
 	private int likeCount;
 
@@ -31,10 +27,10 @@ public class Zillas {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Zillas(int postId, Users userId, int likeCount) {
+	public Zillas(int postId, Users user, int likeCount) {
 		super();
 		this.postId = postId;
-		this.userId = userId;
+		this.user = user;
 		this.likeCount = likeCount;
 	}
 
@@ -46,12 +42,12 @@ public class Zillas {
 		this.postId = postId;
 	}
 
-	public Users getUserId() {
-		return userId;
+	public Users getUser() {
+		return user;
 	}
 
-	public void setUserId(Users userId) {
-		this.userId = userId;
+	public void setUser(Users user) {
+		this.user = user;
 	}
 
 	public int getLikeCount() {
@@ -64,7 +60,7 @@ public class Zillas {
 
 	@Override
 	public String toString() {
-		return "Zillas [postId=" + postId + ", userId=" + userId + ", likeCount=" + likeCount + "]";
+		return "Zillas [postId=" + postId + ", user=" + user + ", likeCount=" + likeCount + "]";
 	}
 
 	@Override
@@ -73,7 +69,7 @@ public class Zillas {
 		int result = 1;
 		result = prime * result + likeCount;
 		result = prime * result + postId;
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -90,10 +86,10 @@ public class Zillas {
 			return false;
 		if (postId != other.postId)
 			return false;
-		if (userId == null) {
-			if (other.userId != null)
+		if (user == null) {
+			if (other.user != null)
 				return false;
-		} else if (!userId.equals(other.userId))
+		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}

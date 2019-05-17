@@ -13,14 +13,14 @@ import com.geekzilla.services.UserServices;
 
 @RestController
 @RequestMapping("users")
-
 public class UserController {
-@Autowired
+	
+	@Autowired
 	private UserServices userServices;
 
 
-	@GetMapping("/{username}")
-	public Users findByUsername(@PathVariable String username) {
+	@GetMapping("username/{username}")
+	public Users findByUserName(@PathVariable String username) {
 		return userServices.findByUserName(username);
 	}
 	
@@ -28,9 +28,9 @@ public class UserController {
 	public Users save(@RequestBody Users m) {
 		return userServices.save(m);
 	}
-	@GetMapping("{id}")
-	public Users findById(@PathVariable int id) {
-		return userServices.findByUserId(id);
+	@GetMapping("{userId}")
+	public Users findById(@PathVariable int userId) {
+		return userServices.findById(userId);
 		
 	}
 

@@ -11,12 +11,14 @@ public class UserServices {
 	@Autowired 
 	private UserRepo userRepo;
 	
-	public Users findByUserName(String username) {
-		return userRepo.findByUserName(username);
+	public Users findByUserName(String userName) {
+		return userRepo.findByUserName(userName);
 	}
-	public Users findByUserId(int id) {
-		return userRepo.findByUserId(id);
+	
+	public Users findById(int userId) {
+		return userRepo.getOne(userId);
 	}
+	
 	public Users save(Users m) {
 		return userRepo.save(m);
 	}
