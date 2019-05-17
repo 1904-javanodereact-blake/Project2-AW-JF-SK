@@ -21,6 +21,8 @@ public class Zillas {
 	private Users user;
 	
 	private int likeCount;
+	
+	
 
 	public Zillas() {
 		super();
