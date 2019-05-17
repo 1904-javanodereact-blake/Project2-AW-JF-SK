@@ -21,8 +21,6 @@ public class Messages {
 	@Column(nullable=false, unique=false)
 	private int author;
 	@Column(nullable=false, unique=false)
-	private String subject;
-	@Column(nullable=false, unique=false)
 	private String content;
 	@Type(type = "date")
 	@Column(nullable=false, unique=false)
@@ -31,13 +29,17 @@ public class Messages {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Messages(int id, int author, String subject, String content, Date sent_on) {
+	public Messages(int mesId, int author, String content, Date sent_on) {
 		super();
-		this.mesId = id;
+		this.mesId = mesId;
 		this.author = author;
-		this.subject = subject;
 		this.content = content;
 		this.sent_on = sent_on;
+	}
+	@Override
+	public String toString() {
+		return "Messages [mesId=" + mesId + ", author=" + author + ", content=" + content + ", sent_on=" + sent_on
+				+ "]";
 	}
 	@Override
 	public int hashCode() {
@@ -47,7 +49,6 @@ public class Messages {
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + mesId;
 		result = prime * result + ((sent_on == null) ? 0 : sent_on.hashCode());
-		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
 		return result;
 	}
 	@Override
@@ -73,30 +74,19 @@ public class Messages {
 				return false;
 		} else if (!sent_on.equals(other.sent_on))
 			return false;
-		if (subject == null) {
-			if (other.subject != null)
-				return false;
-		} else if (!subject.equals(other.subject))
-			return false;
 		return true;
 	}
-	public int getId() {
+	public int getMesId() {
 		return mesId;
 	}
-	public void setId(int mes_id) {
-		this.mesId = mes_id;
+	public void setMesId(int mesId) {
+		this.mesId = mesId;
 	}
 	public int getAuthor() {
 		return author;
 	}
 	public void setAuthor(int author) {
 		this.author = author;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 	public String getContent() {
 		return content;
@@ -110,11 +100,5 @@ public class Messages {
 	public void setSent_on(Date sent_on) {
 		this.sent_on = sent_on;
 	}
-	@Override
-	public String toString() {
-		return "Messages [id=" + mesId + ", author=" + author + ", subject=" + subject + ", content=" + content
-				+ ", sent_on=" + sent_on + "]";
-	}
-	
-	
 }
+	
