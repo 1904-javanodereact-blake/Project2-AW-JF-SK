@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geekzilla.model.Messages;
-import com.geekzilla.model.Users;	
+	
 import com.geekzilla.services.MessageServices;
 
 @RestController
