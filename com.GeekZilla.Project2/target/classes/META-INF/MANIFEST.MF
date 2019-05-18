@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Geekzilla
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: whild
+Implementation-Vendor-Id: com.Geekzilla
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Project2
+Created-By: Maven Integration for Eclipse
+
