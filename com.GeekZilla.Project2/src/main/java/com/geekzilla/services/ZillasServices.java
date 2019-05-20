@@ -1,5 +1,8 @@
 package com.geekzilla.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +21,11 @@ public class ZillasServices {
 	public Zillas save(Zillas z) {
 		return zillasRepo.save(z);
 	}
+	
+	public List<Zillas> findAll() {
+		return zillasRepo.findAll();
+	}
+//	public Zillas findByZillaName(String zillaName) {
+//		return zillasRepo.findByZillaName(zillaName);
+//	}
 }

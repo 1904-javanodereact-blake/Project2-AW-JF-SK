@@ -9,4 +9,5 @@ import com.geekzilla.model.Users;
 public interface UserRepo extends JpaRepository<Users, Integer> {
 
 	Users findByUserName(String userName);
+	public Users findByUserNameAndPassword(String userName, String password);
 }

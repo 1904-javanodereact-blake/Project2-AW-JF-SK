@@ -5,10 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.CascadeType;
+import org.hibernate.engine.internal.Cascade;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -35,20 +34,13 @@ public class Users {
 	
 	@Column(nullable=false, unique=true)
 	private String email;
+	
+	@OneToOne
+	private Images profilePicture;
 
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	
-	public Users(int userId, String userName, String firstName, String lastName, String password, String email) {
-		super();
-		this.userId = userId;
-		this.userName = userName;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.password = password;
-		this.email = email;
 	}
 
 	public int getUserId() {
@@ -99,10 +91,12 @@ public class Users {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "Users [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", password=" + password + ", email=" + email + "]";
+	public Images getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(Images profilePicture) {
+		this.profilePicture = profilePicture;
 	}
 
 	@Override
@@ -113,6 +107,7 @@ public class Users {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((profilePicture == null) ? 0 : profilePicture.hashCode());
 		result = prime * result + userId;
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
 		return result;
@@ -147,6 +142,11 @@ public class Users {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (profilePicture == null) {
+			if (other.profilePicture != null)
+				return false;
+		} else if (!profilePicture.equals(other.profilePicture))
+			return false;
 		if (userId != other.userId)
 			return false;
 		if (userName == null) {
@@ -156,6 +156,11 @@ public class Users {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", userName=" + userName + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", password=" + password + ", email=" + email + ", profilePicture=" + profilePicture + "]";
+	}
 }
+	

@@ -1,5 +1,7 @@
 package com.geekzilla.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.geekzilla.model.Users;
 import com.geekzilla.model.Zillas;
 import com.geekzilla.services.ZillasServices;
 
@@ -26,6 +28,16 @@ public class ZillasController {
 	public Zillas findById(@PathVariable int id) {
 		return zillaServices.findById(id);
 		
-	}}
+	}
+	
+	@GetMapping()
+	public List<Zillas> findAll() {
+		return zillaServices.findAll();
+	}
+//	@GetMapping("username/{username}")
+//	public Zillas findByZillaName(@PathVariable String username) {
+//		return zillaServices.findByZillaName(username);
+//	}
+}
 	
 

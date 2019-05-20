@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,6 +23,8 @@ private String url;
 @Column(nullable = false, unique = true)
 private String title;
 
+@OneToOne
+private Users userId;
 public Images() {
 	super();
 	// TODO Auto-generated constructor stub

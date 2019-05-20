@@ -1,4 +1,4 @@
-package com.geekzilla.model;
+	package com.geekzilla.model;
 
 import java.util.Date;
 
@@ -22,24 +22,33 @@ public class Messages {
 	private int author;
 	@Column(nullable=false, unique=false)
 	private String content;
-	@Type(type = "date")
-	@Column(nullable=false, unique=false)
-	private Date sent_on;
+	public int getMesId() {
+		return mesId;
+	}
+	public void setMesId(int mesId) {
+		this.mesId = mesId;
+	}
+	public int getAuthor() {
+		return author;
+	}
+	public void setAuthor(int author) {
+		this.author = author;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public Messages() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Messages(int mesId, int author, String content, Date sent_on) {
+	public Messages(int mesId, int author, String content) {
 		super();
 		this.mesId = mesId;
 		this.author = author;
 		this.content = content;
-		this.sent_on = sent_on;
-	}
-	@Override
-	public String toString() {
-		return "Messages [mesId=" + mesId + ", author=" + author + ", content=" + content + ", sent_on=" + sent_on
-				+ "]";
 	}
 	@Override
 	public int hashCode() {
@@ -48,7 +57,6 @@ public class Messages {
 		result = prime * result + author;
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + mesId;
-		result = prime * result + ((sent_on == null) ? 0 : sent_on.hashCode());
 		return result;
 	}
 	@Override
@@ -69,36 +77,12 @@ public class Messages {
 			return false;
 		if (mesId != other.mesId)
 			return false;
-		if (sent_on == null) {
-			if (other.sent_on != null)
-				return false;
-		} else if (!sent_on.equals(other.sent_on))
-			return false;
 		return true;
 	}
-	public int getMesId() {
-		return mesId;
+	@Override
+	public String toString() {
+		return "Messages [mesId=" + mesId + ", author=" + author + ", content=" + content + "]";
 	}
-	public void setMesId(int mesId) {
-		this.mesId = mesId;
-	}
-	public int getAuthor() {
-		return author;
-	}
-	public void setAuthor(int author) {
-		this.author = author;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public Date getSent_on() {
-		return sent_on;
-	}
-	public void setSent_on(Date sent_on) {
-		this.sent_on = sent_on;
-	}
-}
+
 	
+}

@@ -1,5 +1,7 @@
 package com.geekzilla.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geekzilla.model.Users;
+import com.geekzilla.model.Zillas;
 import com.geekzilla.services.UserServices;
 
 @RestController
@@ -33,5 +36,15 @@ public class UserController {
 		return userServices.findById(userId);
 		
 	}
+	@GetMapping()
+	public List<Users> findAll() {
+		return userServices.findAll();
+	}
+	
+//	@PostMapping("login")
+//	public Users findByUsernameAndPassword(@PathVariable String username, @PathVariable String password) {
+//		userServices.findByUserName(username);
+//		if()
+//	}
 
 }
